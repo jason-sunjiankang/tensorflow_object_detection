@@ -1,23 +1,33 @@
-参考网址：https://blog.csdn.net/chenmaolin88/article/details/79357263
 
-TensorFlow:Object_Detection_API在Windows10上的配置
+一、ssd_mobilenet_v1_coco.config修改
+
+1.num_classes: 90->num_classes: 1(如有n个类，则为n)；
+
+2.fine_tune_checkpoint: "PATH_TO_BE_CONFIGURED/data/ssd_mobilenet_v1_coco_2017_11_17/model.ckpt"（trainning 1 downloaded）；
+3.num_steps: 200000->num_steps: 100000(根据训练过程调整)；
+4.修改train_input_reader中input_path: "PATH_TO_BE_CONFIGURED/data/train.record"和label_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"；
+5.修改eval_config:下num_examples: 8000，metrics_set:"pascal_voc_metrics"（可不添加）；
+6.修改eval_input_reader中input_path: "PATH_TO_BE_CONFIGURED/data/eval.record"和label_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"；
 
 
 
+
+
+二、训练&测试
 在models-master/research/object_detection(tensorflow object detection api)路径下,执行下面的相关命令：
 （！！！！！！直接粘贴到cmd容易错行，要检查好！！！！！！）
 1.训练：
-python3 train.py \--logtostderr \--pipeline_config_path=/home/sun/tensorflow/project1_object_detection/object_detection/data/ssd_mobilenet_v1_raccoon.config \--train_dir=/home/sun/tensorflow/project1_object_detection/object_detection/model/train_model
+python3 train.py \--logtostderr \--pipeline_config_path=/THE CONFIG PATH/data/ssd_mobilenet_v1_raccoon.config \--train_dir=/THE PATH SAVE TRAINNING MODEL/model/train_model
 
 2.测试：
-python3 eval.py \--logtostderr \--pipeline_config_path=/home/sun/tensorflow/project1_object_detection/object_detection/data/ssd_mobilenet_v1_raccoon.config \--checkpoint_dir=/home/sun/tensorflow/project1_object_detection/object_detection/model/train_model \--eval_dir=/home/sun/tensorflow/project1_object_detection/object_detection/model/eval
+python3 eval.py \--logtostderr \--pipeline_config_path=/THE CONFIG PATH/data/ssd_mobilenet_v1_raccoon.config \--checkpoint_dir=/THE PATH WHERE YOU SAVE TRAINNING MODEL/model/train_model \--eval_dir=/THE PATH WHERE YOU SAVE EVAL INFORMATION/model/eval
 
 运行测试时会提示 No module named 'pycocotools'或No module named 'object_detection'，原因是没有按照官方进行环境配置：在tensorflow/models/research/下执行export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 （如果关闭终端窗口，则必须重新执行此操作！！！！！！！）
 
 
 3.将检查点文件导出为冻结的模型文件：
-python3 export_inference_graph.py \--pipeline_config_path=/home/sun/tensorflow/project1_object_detection/object_detection/data/ssd_mobilenet_v1_raccoon.config \--trained_checkpoint_prefix=/home/sun/tensorflow/project1_object_detection/object_detection/model/train_model/model.ckpt-60 \--output_directory=/home/sun/tensorflow/project1_object_detection/object_detection/model/train_model
+python3 export_inference_graph.py \--pipeline_config_path=/THE PATH SAVE TRAINNING MODEL/data/ssd_mobilenet_v1_raccoon.config \--trained_checkpoint_prefix=/THE PATH WHERE YOU SAVE TRAINNING MODEL/model/train_model/model.ckpt-60 \--output_directory=/THE PATH WHERE YOU SAVE PB DATA/model/train_model
 
 
   
