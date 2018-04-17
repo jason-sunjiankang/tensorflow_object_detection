@@ -41,10 +41,23 @@
 ## Trainning
 >1.需要使用迁移学习来加速我们的训练过程，我们将使用[ssd_mobilenet_v1_coco](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz)作为预训练模型来进行训练，放在自己新建的data/目录下；
 
->2.
+>2.根据框架要求，使用pbtxt格式文件定义好我们的类别ID与类别名称的关系，可在data/下新建object_detection_label_map.pbtxt的文本文件，内容如下（如有多类，可按照顺序增加）：
+<br>item {
+<br>id: 1
+<br>name: 'raccoon'
+<br>}
 
 
->3.复制models-master/research/object_detection/samples/configs/下的ssd_mobilenet_v1_coco.config到自己新建的data/目录下，并做如下修改：num_classes: 90->num_classes: 1(如有n个类，则为n)，num_steps: 200000->num_steps: 100000(根据训练过程调整)，train_input_reader中
+>3.复制models-master/research/object_detection/samples/configs/下的ssd_mobilenet_v1_coco.config到自己新建的data/目录下，并做如下修改：
+<br>a.num_classes: 90->num_classes: 1(如有n个类，则为n)；
+<br>b.fine_tune_checkpoint: "PATH_TO_BE_CONFIGURED/data/ssd_mobilenet_v1_coco_2017_11_17/model.ckpt"（trainning 1 downloaded）；
+<br>c.num_steps: 200000->num_steps: 100000(根据训练过程调整)；
+<br>d.修改train_input_reader中input_path: "PATH_TO_BE_CONFIGURED/data/train.record"和label_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"；
+<br>e.修改eval_config:下num_examples: 8000，metrics_set:"pascal_voc_metrics"（可不添加）；
+<br>f.修改eval_input_reader中input_path: "PATH_TO_BE_CONFIGURED/data/eval.record"和label_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"；
+
+
+
 
 
 >4.在models-master/research/object_detection(tensorflow object detection api)路径下,执行下面的相关命令：
