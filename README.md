@@ -7,22 +7,22 @@
 * Python 3
 
 ## Installation(tensorflow object detection)
-### *windows10
->1.下载tensorflow models模块，地址：https://github.com/tensorflow/models；
+>### windows10
+>>1.下载tensorflow models模块，地址：https://github.com/tensorflow/models；
 
->2.配置protobuf，下载protoc-3.5.0-win32.zip（https://github.com/google/protobuf/releases， 解压后将bin文件夹加入到系统环境变量；
+>>2.配置protobuf，下载protoc-3.5.0-win32.zip（https://github.com/google/protobuf/releases， 解压后将bin文件夹加入到系统环境变量；
 
->3.安装tensorflow model 以及slim：
+>>3.安装tensorflow model 以及slim：
 
-  >>a.在models-master/research/目录下cmd运行：python setup.py install，安装model模块；
+  >>>a.在models-master/research/目录下cmd运行：python setup.py install，安装model模块；
   
-  >>b.在models-master/research/目录下cmd运行：python object_detection/builders/model_builder_test.py测试，会报错ImportError: No module named nets；
+  >>>b.在models-master/research/目录下cmd运行：python object_detection/builders/model_builder_test.py测试，会报错ImportError: No module named nets；
   
-  >>c.进一步安装slim,在models-master/research/slim目录下cmd运行：python setup.py install；
+  >>>c.进一步安装slim,在models-master/research/slim目录下cmd运行：python setup.py install；
   
->4.配置path环境变量：包括models-master、research和slim三个文件夹的路径。
+>>4.配置path环境变量：包括models-master、research和slim三个文件夹的路径。
 
-### *ubuntu 16.04
+>### ubuntu 16.04
 
 1.按照官方文档进行安装：[tensorflow object detection api installation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)
 
