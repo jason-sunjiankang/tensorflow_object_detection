@@ -26,7 +26,8 @@
 
 1.按照官方文档进行安装：[tensorflow object detection api installation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)
 
-## 数据处理
+## Get TFRecord
+
 >1.获取图像数据；
 
 >2.使用[labelImg](https://github.com/tzutalin/labelImg)给图像数据打标签，得到每张图像对应的xml文件；
