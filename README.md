@@ -55,11 +55,13 @@
 
 >5.在models-master/research/object_detection(tensorflow object detection api)路径下,命令行执行[train_eval_run(win10&ubuntu16.04)](https://github.com/jason-sunjiankang/tensorflow_object_detection/blob/master/train_eval_run(win10%26ubuntu16.04).txt)二中测试命令，需安装[cocoapi](https://github.com/cocodataset/cocoapi),学习时可不安装；
 
+>6.用TensorBoard查看训练进程，命令行下运行：tensorboard --logdir=/THE PATH WHERE YOU SAVE MODEl/train_model
 
 ## Testing
 >1.将检查点文件导出为冻结的模型文件，命令行执行[train_eval_run(win10&ubuntu16.04)](https://github.com/jason-sunjiankang/tensorflow_object_detection/blob/master/train_eval_run(win10%26ubuntu16.04).txt)二中将检查点文件导出为冻结的模型文件命令，生成pb文件（最后需要调用的文件）；
 
->2.运行.py。
+>2.运行[test_model.py](https://github.com/jason-sunjiankang/tensorflow_object_detection/blob/master/test_model.py)，测试模型。
+
 
 ## Dependence License
 * MIT license
