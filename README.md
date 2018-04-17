@@ -24,7 +24,7 @@
 
 >### ubuntu 16.04
 
-1.按照官方文档进行安装：[tensorflow object detection api installation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)
+>>1.按照官方文档进行安装：[tensorflow object detection api installation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)
 
 ## Get tfrecord
 
