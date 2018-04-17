@@ -27,21 +27,29 @@
 >>1.按照官方文档进行安装：[tensorflow object detection api installation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)
 
 ## Get tfrecord
+>1.新建data目录，如下所有相关数据可放在这个目录下；
 
->1.获取图像数据；
+>2.获取图像数据，放在data/；
 
->2.使用[labelImg](https://github.com/tzutalin/labelImg)给图像数据打标签，得到每张图像对应的xml文件；
+>3.使用[labelImg](https://github.com/tzutalin/labelImg)给图像数据打标签，得到每张图像对应的xml文件；
 
->3.运行xml_to_csv.py将xml按照train和eval转成train.csv和eval.csv，得到训练列表和测试列表;
+>4.运行xml_to_csv.py将xml按照train和eval转成train.csv和eval.csv，得到训练列表和测试列表;
 
->4.运行generate_tfrecord.py将train.csv、eval.csv、images转化为train.record和eval.record，得到tensorflow测试和训练所需的数据；
-
-
-## trainning
-在models-master/research/object_detection(tensorflow object detection api)路径下,执行下面的相关命令：
+>5.运行generate_tfrecord.py将train.csv、eval.csv、images转化为train.record和eval.record，得到tensorflow测试和训练所需的数据；
 
 
-## eval
+## Trainning
+>1.需要使用迁移学习来加速我们的训练过程，我们将使用[ssd_mobilenet_v1_coco](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz)作为预训练模型来进行训练，放在自己新建的data/目录下；
+
+>2.
+
+
+>3.复制models-master/research/object_detection/samples/configs/下的ssd_mobilenet_v1_coco.config到自己新建的data/目录下，并做如下修改：num_classes: 90->num_classes: 1(如有n个类，则为n)，num_steps: 200000->num_steps: 100000(根据训练过程调整)，train_input_reader中
+
+
+>4.在models-master/research/object_detection(tensorflow object detection api)路径下,执行下面的相关命令：
+
+## Eval
 
 ## 实际运行测试
 >1.将检查点文件导出为冻结的模型文件，在models-master/research/object_detection/目录下执行：
