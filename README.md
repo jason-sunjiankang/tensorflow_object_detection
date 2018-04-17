@@ -26,7 +26,7 @@
 
 1.按照官方文档进行安装：[tensorflow object detection api installation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md)
 
-## Get TFRecord
+## Get tfrecord
 
 >1.获取图像数据；
 
