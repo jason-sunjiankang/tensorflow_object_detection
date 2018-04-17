@@ -47,21 +47,17 @@
 <br>name: 'raccoon'
 <br>}
 
->3.复制models-master/research/object_detection/samples/configs/下的ssd_mobilenet_v1_coco.config到自己新建的data/目录下，并做如下修改：
-<br>a.num_classes: 90->num_classes: 1(如有n个类，则为n)；
-<br>b.fine_tune_checkpoint: "PATH_TO_BE_CONFIGURED/data/ssd_mobilenet_v1_coco_2017_11_17/model.ckpt"（trainning 1 downloaded）；
-<br>c.num_steps: 200000->num_steps: 100000(根据训练过程调整)；
-<br>d.修改train_input_reader中input_path: "PATH_TO_BE_CONFIGURED/data/train.record"和label_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"；
-<br>e.修改eval_config:下num_examples: 8000，metrics_set:"pascal_voc_metrics"（可不添加）；
-<br>f.修改eval_input_reader中input_path: "PATH_TO_BE_CONFIGURED/data/eval.record"和label_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"；
+>3.复制models-master/research/object_detection/samples/configs/下的ssd_mobilenet_v1_coco.config到自己新建的data/目录下，并做如[train_eval_run(win10&ubuntu16.04)](https://github.com/jason-sunjiankang/tensorflow_object_detection/blob/master/train_eval_run(win10%26ubuntu16.04).txt)一中所作修改；
 
->4.在models-master/research/object_detection(tensorflow object detection api)路径下,执行下面的相关命令（开始训练）：
-<br>python3 train.py \--logtostderr \--pipeline_config_path=/home/sun/tensorflow/project1_object_detection/object_detection/data/ssd_mobilenet_v1_raccoon.config \--train_dir=/home/sun/tensorflow/project1_object_detection/object_detection/model/train_model
 
-## Eval
 
-## 实际运行测试
->1.将检查点文件导出为冻结的模型文件，在models-master/research/object_detection/目录下执行：
+>4.在models-master/research/object_detection(tensorflow object detection api)路径下,命令行执行[train_eval_run(win10&ubuntu16.04)](https://github.com/jason-sunjiankang/tensorflow_object_detection/blob/master/train_eval_run(win10%26ubuntu16.04).txt)二中训练命令；
+
+>5.在models-master/research/object_detection(tensorflow object detection api)路径下,命令行执行[train_eval_run(win10&ubuntu16.04)](https://github.com/jason-sunjiankang/tensorflow_object_detection/blob/master/train_eval_run(win10%26ubuntu16.04).txt)二中测试命令，需安装[cocoapi](https://github.com/cocodataset/cocoapi),学习时可不安装；
+
+
+## Testing
+>1.将检查点文件导出为冻结的模型文件，命令行执行[train_eval_run(win10&ubuntu16.04)](https://github.com/jason-sunjiankang/tensorflow_object_detection/blob/master/train_eval_run(win10%26ubuntu16.04).txt)二中将检查点文件导出为冻结的模型文件命令，生成pb文件（最后需要调用的文件）；
 
 >2.运行.py。
 
