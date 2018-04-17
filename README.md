@@ -10,7 +10,7 @@
 >### windows10
 >>1.下载tensorflow models模块，地址：https://github.com/tensorflow/models；
 
->>2.配置protobuf，下载protoc-3.5.0-win32.zip（https://github.com/google/protobuf/releases， 解压后将bin文件夹加入到系统环境变量；
+>>2.配置protobuf，下载protoc-3.5.0-win32.zip（https://github.com/google/protobuf/releases）， 解压后将bin文件夹加入到系统环境变量；
 
 >>3.安装tensorflow model 以及slim：
 
