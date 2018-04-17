@@ -47,7 +47,6 @@
 <br>name: 'raccoon'
 <br>}
 
-
 >3.复制models-master/research/object_detection/samples/configs/下的ssd_mobilenet_v1_coco.config到自己新建的data/目录下，并做如下修改：
 <br>a.num_classes: 90->num_classes: 1(如有n个类，则为n)；
 <br>b.fine_tune_checkpoint: "PATH_TO_BE_CONFIGURED/data/ssd_mobilenet_v1_coco_2017_11_17/model.ckpt"（trainning 1 downloaded）；
@@ -56,11 +55,8 @@
 <br>e.修改eval_config:下num_examples: 8000，metrics_set:"pascal_voc_metrics"（可不添加）；
 <br>f.修改eval_input_reader中input_path: "PATH_TO_BE_CONFIGURED/data/eval.record"和label_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"；
 
-
-
-
-
->4.在models-master/research/object_detection(tensorflow object detection api)路径下,执行下面的相关命令：
+>4.在models-master/research/object_detection(tensorflow object detection api)路径下,执行下面的相关命令（开始训练）：
+<br>python3 train.py \--logtostderr \--pipeline_config_path=/home/sun/tensorflow/project1_object_detection/object_detection/data/ssd_mobilenet_v1_raccoon.config \--train_dir=/home/sun/tensorflow/project1_object_detection/object_detection/model/train_model
 
 ## Eval
 
