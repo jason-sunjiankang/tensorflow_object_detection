@@ -1,32 +1,32 @@
 
-Ò»¡¢ssd_mobilenet_v1_coco.configĞŞ¸Ä
+ä¸€ã€ssd_mobilenet_v1_coco.configä¿®æ”¹
 
-1.num_classes: 90->num_classes: 1(ÈçÓĞn¸öÀà£¬ÔòÎªn)£»
+1.num_classes: 90->num_classes: 1(å¦‚æœ‰nä¸ªç±»ï¼Œåˆ™ä¸ºn)ï¼›
 
-2.fine_tune_checkpoint: "PATH_TO_BE_CONFIGURED/data/ssd_mobilenet_v1_coco_2017_11_17/model.ckpt"£¨trainning 1 downloaded£©£»
-3.num_steps: 200000->num_steps: 100000(¸ù¾İÑµÁ·¹ı³Ìµ÷Õû)£»
-4.ĞŞ¸Ätrain_input_readerÖĞinput_path: "PATH_TO_BE_CONFIGURED/data/train.record"ºÍlabel_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"£»
-5.ĞŞ¸Äeval_config:ÏÂnum_examples: 8000£¬metrics_set:"pascal_voc_metrics"£¨¿É²»Ìí¼Ó£©£»
-6.ĞŞ¸Äeval_input_readerÖĞinput_path: "PATH_TO_BE_CONFIGURED/data/eval.record"ºÍlabel_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"£»
-
-
+2.fine_tune_checkpoint: "PATH_TO_BE_CONFIGURED/data/ssd_mobilenet_v1_coco_2017_11_17/model.ckpt"ï¼ˆtrainning 1 downloadedï¼‰ï¼›
+3.num_steps: 200000->num_steps: 100000(æ ¹æ®è®­ç»ƒè¿‡ç¨‹è°ƒæ•´)ï¼›
+4.ä¿®æ”¹train_input_readerä¸­input_path: "PATH_TO_BE_CONFIGURED/data/train.record"å’Œlabel_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"ï¼›
+5.ä¿®æ”¹eval_config:ä¸‹num_examples: 50(æµ‹è¯•æ ·æœ¬æ•°)ï¼Œmetrics_set:"pascal_voc_metrics"ï¼ˆå¯ä¸æ·»åŠ ï¼‰ï¼›
+6.ä¿®æ”¹eval_input_readerä¸­input_path: "PATH_TO_BE_CONFIGURED/data/eval.record"å’Œlabel_map_path: "PATH_TO_BE_CONFIGURED/data/object_detection_label_map.pbtxt"ï¼›
 
 
 
-¶ş¡¢ÑµÁ·&²âÊÔ
-ÔÚmodels-master/research/object_detection(tensorflow object detection api)Â·¾¶ÏÂ,Ö´ĞĞÏÂÃæµÄÏà¹ØÃüÁî£º
-£¨£¡£¡£¡£¡£¡£¡Ö±½ÓÕ³Ìùµ½cmdÈİÒ×´íĞĞ£¬Òª¼ì²éºÃ£¡£¡£¡£¡£¡£¡£©
-1.ÑµÁ·£º
+
+
+äºŒã€è®­ç»ƒ&æµ‹è¯•
+åœ¨models-master/research/object_detection(tensorflow object detection api)è·¯å¾„ä¸‹,æ‰§è¡Œä¸‹é¢çš„ç›¸å…³å‘½ä»¤ï¼š
+ï¼ˆï¼ï¼ï¼ï¼ï¼ï¼ç›´æ¥ç²˜è´´åˆ°cmdå®¹æ˜“é”™è¡Œï¼Œè¦æ£€æŸ¥å¥½ï¼ï¼ï¼ï¼ï¼ï¼ï¼‰
+1.è®­ç»ƒï¼š
 python3 train.py \--logtostderr \--pipeline_config_path=/THE CONFIG PATH/data/ssd_mobilenet_v1_raccoon.config \--train_dir=/THE PATH SAVE TRAINNING MODEL/model/train_model
 
-2.²âÊÔ£º
+2.æµ‹è¯•ï¼š
 python3 eval.py \--logtostderr \--pipeline_config_path=/THE CONFIG PATH/data/ssd_mobilenet_v1_raccoon.config \--checkpoint_dir=/THE PATH WHERE YOU SAVE TRAINNING MODEL/model/train_model \--eval_dir=/THE PATH WHERE YOU SAVE EVAL INFORMATION/model/eval
 
-ÔËĞĞ²âÊÔÊ±»áÌáÊ¾ No module named 'pycocotools'»òNo module named 'object_detection'£¬Ô­ÒòÊÇÃ»ÓĞ°´ÕÕ¹Ù·½½øĞĞ»·¾³ÅäÖÃ£ºÔÚtensorflow/models/research/ÏÂÖ´ĞĞexport PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
-£¨Èç¹û¹Ø±ÕÖÕ¶Ë´°¿Ú£¬Ôò±ØĞëÖØĞÂÖ´ĞĞ´Ë²Ù×÷£¡£¡£¡£¡£¡£¡£¡£©
+è¿è¡Œæµ‹è¯•æ—¶ä¼šæç¤º No module named 'pycocotools'æˆ–No module named 'object_detection'ï¼ŒåŸå› æ˜¯æ²¡æœ‰æŒ‰ç…§å®˜æ–¹è¿›è¡Œç¯å¢ƒé…ç½®ï¼šåœ¨tensorflow/models/research/ä¸‹æ‰§è¡Œexport PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+ï¼ˆå¦‚æœå…³é—­ç»ˆç«¯çª—å£ï¼Œåˆ™å¿…é¡»é‡æ–°æ‰§è¡Œæ­¤æ“ä½œï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼‰
 
 
-3.½«¼ì²éµãÎÄ¼şµ¼³öÎª¶³½áµÄÄ£ĞÍÎÄ¼ş£º
+3.å°†æ£€æŸ¥ç‚¹æ–‡ä»¶å¯¼å‡ºä¸ºå†»ç»“çš„æ¨¡å‹æ–‡ä»¶ï¼š
 python3 export_inference_graph.py \--pipeline_config_path=/THE PATH SAVE TRAINNING MODEL/data/ssd_mobilenet_v1_raccoon.config \--trained_checkpoint_prefix=/THE PATH WHERE YOU SAVE TRAINNING MODEL/model/train_model/model.ckpt-60 \--output_directory=/THE PATH WHERE YOU SAVE PB DATA/model/train_model
 
 
